@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Student Dashboard</title>
+
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+        }
+
+        body{
+            font-family:Arial, sans-serif;
+            background:#f1f5f9;
+        }
+
+        .dashboard{
+            width:92%;
+            max-width:1400px;
+            margin:30px auto;
+        }
+
+        .header{
+            background:white;
+            padding:30px 40px;
+            border-radius:15px;
+            box-shadow:0 4px 15px rgba(0,0,0,0.1);
+            margin-bottom:25px;
+        }
+
+        .header h1{
+            color:#0d47a1;
+            font-size:38px;
+            margin-bottom:10px;
+        }
+
+        .header h2{
+            color:#444;
+            font-size:24px;
+        }
+
+        .content{
+            display:grid;
+            grid-template-columns:1fr 1fr;
+            gap:25px;
+        }
+
+        .card{
+            background:white;
+            padding:25px;
+            border-radius:15px;
+            box-shadow:0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .card h2{
+            color:#0d47a1;
+            margin-bottom:20px;
+            border-bottom:2px solid #e5e7eb;
+            padding-bottom:12px;
+        }
+
+        .info{
+            display:flex;
+            justify-content:space-between;
+            padding:14px 0;
+            border-bottom:1px solid #e5e7eb;
+            font-size:17px;
+        }
+
+        .info strong{
+            color:#333;
+        }
+
+        .info span{
+            color:#555;
+            text-align:right;
+        }
+
+        .button-area{
+            margin-top:25px;
+            text-align:center;
+        }
+
+        button{
+            background:#0d47a1;
+            color:white;
+            border:none;
+            padding:14px 30px;
+            border-radius:8px;
+            font-size:17px;
+            cursor:pointer;
+        }
+
+        button:hover{
+            background:#1565c0;
+        }
+
+        @media(max-width:800px){
+
+            .content{
+                grid-template-columns:1fr;
+            }
+
+            .dashboard{
+                width:95%;
+            }
+
+            .header h1{
+                font-size:28px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="dashboard">
+
+    <div class="header">
+        <h1>Student Dashboard</h1>
+        <h2>Welcome, {{ name }}</h2>
+    </div>
+
+    <div class="content">
+
+        <div class="card">
+            <h2>Personal Information</h2>
+
+            <div class="info">
+                <strong>Full Name</strong>
+                <span>{{ name }}</span>
+            </div>
+
+            <div class="info">
+                <strong>Father's Name</strong>
+                <span>{{ father }}</span>
+            </div>
+
+            <div class="info">
+                <strong>Mother's Name</strong>
+                <span>{{ mother }}</span>
+            </div>
+
+            <div class="info">
+                <strong>Date of Birth</strong>
+                <span>{{ dob }}</span>
+            </div>
+
+            <div class="info">
+                <strong>Gender</strong>
+                <span>{{ gender }}</span>
+            </div>
+
+            <div class="info">
+                <strong>Phone</strong>
+                <span>{{ phone }}</span>
+            </div>
+
+            <div class="info">
+                <strong>Email</strong>
+                <span>{{ email }}</span>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Academic Information</h2>
+
+            <div class="info">
+                <strong>Qualification</strong>
+                <span>{{ qualification }}</span>
+            </div>
+
+            <div class="info">
+                <strong>Branch</strong>
+                <span>{{ branch }}</span>
+            </div>
+
+            <div class="info">
+                <strong>10th Percentage</strong>
+                <span>{{ tenth }}%</span>
+            </div>
+
+            <div class="info">
+                <strong>12th / Diploma Percentage</strong>
+                <span>{{ inter }}%</span>
+            </div>
+
+            <div class="info">
+                <strong>Degree CGPA</strong>
+                <span>{{ cgpa }}</span>
+            </div>
+
+            <div class="info">
+                <strong>Skills</strong>
+                <span>{{ skills }}</span>
+            </div>
+
+            <div class="button-area">
+                <a href="/output">
+                    <button>View Placement Result</button>
+                </a>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+...
+
+<footer>
+    <h3>Student Placement Prediction System</h3>
+    <p>Developed by <strong>Hemalatha Dasari</strong></p>
+    <p>Krishna University | Department of Computer Science & Engineering</p>
+    <p>© 2026 All Rights Reserved</p>
+</footer>
+
+</body>
+</html>
+</body>
+</html>

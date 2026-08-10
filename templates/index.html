@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Student Placement Prediction System</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+
+<body>
+
+
+<div class="container">
+
+
+    <h1>
+
+        Student Placement Prediction System
+
+    </h1>
+
+
+    <h2>
+
+        Student Login
+
+    </h2>
+
+
+    <form action="/login"
+          method="POST">
+
+
+        <label>
+
+            Email
+
+        </label>
+
+
+        <input
+
+            type="email"
+
+            name="email"
+
+            id="loginEmail"
+
+            placeholder="Enter your email"
+
+            required>
+
+
+        <label>
+
+            Password
+
+        </label>
+
+
+        <input
+
+            type="password"
+
+            name="password"
+
+            id="loginPassword"
+
+            placeholder="Enter your password"
+
+            required>
+
+
+        <br>
+
+
+        <button type="submit">
+
+            Login
+
+        </button>
+
+
+    </form>
+
+
+    <p class="register-link">
+
+
+        New User?
+
+
+        <a href="{{ url_for('register') }}">
+
+            Register Here
+
+        </a>
+
+
+    </p>
+
+
+</div>
+
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+...
+
+<footer>
+    <h3>Student Placement Prediction System</h3>
+    <p>Developed by <strong>Hemalatha Dasari</strong></p>
+    <p>Krishna University | Department of Computer Science & Engineering</p>
+    <p>© 2026 All Rights Reserved</p>
+</footer>
+
+</body>
+</html>
+
+</body>
+
+</html>

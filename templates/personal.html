@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Personal Information</title>
+
+    <style>
+        body{
+            font-family: Arial, sans-serif;
+            background:#f4f4f4;
+        }
+
+        .container{
+            width:60%;
+            margin:30px auto;
+            background:white;
+            padding:20px;
+            border-radius:10px;
+            box-shadow:0 0 10px gray;
+        }
+
+        h2{
+            text-align:center;
+            color:#007bff;
+        }
+
+        label{
+            font-weight:bold;
+        }
+
+        input, select, textarea{
+            width:100%;
+            padding:10px;
+            margin-top:5px;
+            margin-bottom:15px;
+            border:1px solid #ccc;
+            border-radius:5px;
+        }
+
+        button{
+            width:100%;
+            padding:12px;
+            background:#007bff;
+            color:white;
+            border:none;
+            border-radius:5px;
+            font-size:16px;
+            cursor:pointer;
+        }
+
+        button:hover{
+            background:#0056b3;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h2>Student Personal Information</h2>
+
+<form action="/dashboard" method="POST">
+
+<label>Full Name</label>
+<input type="text" name="name" required>
+
+<label>Father's Name</label>
+<input type="text" name="father" required>
+
+<label>Mother's Name</label>
+<input type="text" name="mother" required>
+
+<label>Date of Birth</label>
+<input type="date" name="dob" required>
+
+<label>Gender</label>
+<select name="gender" required>
+    <option value="">Select</option>
+    <option>Male</option>
+    <option>Female</option>
+    <option>Other</option>
+</select>
+
+<label>Phone Number</label>
+<input type="tel" name="phone" required>
+
+<label>Email</label>
+<input type="email" name="email" required>
+
+
+<!-- QUALIFICATION -->
+
+<label>Qualification</label>
+
+<select name="qualification" id="qualification" required>
+
+    <option value="">Select Qualification</option>
+
+    <option value="B.Tech">B.Tech</option>
+
+    <option value="B.E">B.E</option>
+
+    <option value="B.Sc">B.Sc</option>
+
+    <option value="B.Com">B.Com</option>
+
+    <option value="BCA">BCA</option>
+
+    <option value="M.Tech">M.Tech</option>
+
+    <option value="MCA">MCA</option>
+
+    <option value="M.Sc">M.Sc</option>
+
+    <option value="Degree">Degree</option>
+
+</select>
+
+
+<!-- BRANCH -->
+
+<label>Branch / Specialization</label>
+
+<select name="branch" id="branch" required>
+
+    <option value="">
+        First Select Qualification
+    </option>
+
+</select>
+
+
+<label>10th Percentage</label>
+<input type="number" step="0.01" name="tenth" required>
+
+<label>12th / Diploma Percentage</label>
+<input type="number" step="0.01" name="inter" required>
+
+<label>Degree CGPA</label>
+<input type="number" step="0.01" name="cgpa" required>
+
+<label>Skills</label>
+<input type="text"
+       name="skills"
+       placeholder="Python, Java, HTML..."
+       required>
+
+<button type="submit">
+    Next
+</button>
+
+</form>
+
+</div>
+
+
+<script>
+
+const qualification =
+document.getElementById("qualification");
+
+const branch =
+document.getElementById("branch");
+
+
+const branches = {
+
+    "B.Tech": [
+
+        "Computer Science Engineering (CSE)",
+
+        "Information Technology (IT)",
+
+        "Electronics and Communication Engineering (ECE)",
+
+        "Electrical and Electronics Engineering (EEE)",
+
+        "Mechanical Engineering (ME)",
+
+        "Civil Engineering (CE)",
+
+        "Artificial Intelligence and Machine Learning (AI & ML)",
+
+        "Data Science (DS)"
+
+    ],
+
+
+    "B.E": [
+
+        "Computer Science Engineering (CSE)",
+
+        "Information Technology (IT)",
+
+        "Electronics and Communication Engineering (ECE)",
+
+        "Electrical and Electronics Engineering (EEE)",
+
+        "Mechanical Engineering (ME)",
+
+        "Civil Engineering (CE)"
+
+    ],
+
+
+    "B.Sc": [
+
+        "Computer Science",
+
+        "Mathematics",
+
+        "Physics",
+
+        "Chemistry",
+
+        "Biotechnology",
+
+        "Statistics",
+
+        "Data Science"
+
+    ],
+
+
+    "B.Com": [
+
+        "General",
+
+        "Computer Applications",
+
+        "Accounting and Finance",
+
+        "Banking and Insurance",
+
+        "Business Analytics"
+
+    ],
+
+
+    "BCA": [
+
+        "Computer Applications",
+
+        "Data Science",
+
+        "Cloud Computing",
+
+        "Artificial Intelligence",
+
+        "Cyber Security"
+
+    ],
+
+
+    "M.Tech": [
+
+        "Computer Science Engineering",
+
+        "Artificial Intelligence",
+
+        "Data Science",
+
+        "Cyber Security",
+
+        "VLSI Design",
+
+        "Power Systems",
+
+        "Structural Engineering",
+
+        "Machine Design"
+
+    ],
+
+
+    "MCA": [
+
+        "Computer Applications",
+
+        "Data Science",
+
+        "Artificial Intelligence",
+
+        "Cloud Computing",
+
+        "Cyber Security"
+
+    ],
+
+
+    "M.Sc": [
+
+        "Computer Science",
+
+        "Mathematics",
+
+        "Physics",
+
+        "Chemistry",
+
+        "Statistics",
+
+        "Data Science",
+
+        "Biotechnology"
+
+    ],
+
+
+    "Degree": [
+
+        "Computer Science",
+
+        "Computer Applications",
+
+        "Mathematics",
+
+        "Physics",
+
+        "Chemistry",
+
+        "Commerce",
+
+        "Arts",
+
+        "Management"
+
+    ]
+
+};
+
+
+qualification.addEventListener("change", function(){
+
+    const selectedQualification =
+    this.value;
+
+
+    branch.innerHTML =
+    '<option value="">Select Branch / Specialization</option>';
+
+
+    if(branches[selectedQualification]){
+
+        branches[selectedQualification].forEach(function(item){
+
+            const option =
+            document.createElement("option");
+
+
+            option.value = item;
+
+            option.textContent = item;
+
+
+            branch.appendChild(option);
+
+        });
+
+    }
+
+});
+
+</script>
+...
+
+<footer>
+    <h3>Student Placement Prediction System</h3>
+    <p>Developed by <strong>Hemalatha Dasari</strong></p>
+    <p>Krishna University | Department of Computer Science & Engineering</p>
+    <p>© 2026 All Rights Reserved</p>
+</footer>
+
+</body>
+</html>
+</body>
+</html>

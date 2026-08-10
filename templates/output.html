@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Placement Prediction Result</title>
+
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+        }
+
+
+        body{
+
+            font-family:Arial, sans-serif;
+
+            background:#f1f5f9;
+
+        }
+
+
+        .page{
+
+            width:92%;
+
+            max-width:1200px;
+
+            margin:30px auto;
+
+        }
+
+
+        .main-title{
+
+            background:white;
+
+            padding:30px;
+
+            text-align:center;
+
+            border-radius:18px;
+
+            box-shadow:0 4px 15px rgba(0,0,0,0.1);
+
+            margin-bottom:25px;
+
+        }
+
+
+        .main-title h1{
+
+            color:#0d47a1;
+
+            font-size:40px;
+
+        }
+
+
+        .section{
+
+            background:white;
+
+            padding:35px;
+
+            border-radius:18px;
+
+            box-shadow:0 4px 15px rgba(0,0,0,0.1);
+
+            margin-bottom:25px;
+
+        }
+
+
+        .section h2{
+
+            color:#0d47a1;
+
+            font-size:28px;
+
+            text-align:center;
+
+            border-bottom:2px solid #e5e7eb;
+
+            padding-bottom:15px;
+
+            margin-bottom:25px;
+
+        }
+
+
+        /* PLACEMENT RESULT */
+
+        .prediction{
+
+            text-align:center;
+
+        }
+
+
+        .percentage{
+
+            font-size:90px;
+
+            font-weight:bold;
+
+            color:#16a34a;
+
+            margin:20px 0;
+
+        }
+
+
+        .status{
+
+            font-size:25px;
+
+            font-weight:bold;
+
+            color:#16a34a;
+
+        }
+
+
+        .message{
+
+            font-size:18px;
+
+            color:#555;
+
+            margin-top:20px;
+
+            line-height:1.6;
+
+        }
+
+
+        /* JOB ROLES */
+
+        .roles{
+
+            display:grid;
+
+            grid-template-columns:repeat(4,1fr);
+
+            gap:15px;
+
+        }
+
+
+        .role{
+
+            background:#f1f5f9;
+
+            padding:20px;
+
+            text-align:center;
+
+            border-radius:10px;
+
+            font-size:18px;
+
+            font-weight:bold;
+
+        }
+
+
+        /* SKILLS TO IMPROVE */
+
+        .improve{
+
+            display:grid;
+
+            grid-template-columns:repeat(4,1fr);
+
+            gap:15px;
+
+        }
+
+
+        .skill{
+
+            background:#f1f5f9;
+
+            padding:20px;
+
+            text-align:center;
+
+            border-radius:10px;
+
+            font-size:18px;
+
+        }
+
+
+        /* BUTTONS */
+
+        .buttons{
+
+            text-align:center;
+
+            margin:30px 0;
+
+        }
+
+
+        button{
+
+            background:#0d47a1;
+
+            color:white;
+
+            border:none;
+
+            padding:14px 30px;
+
+            border-radius:8px;
+
+            font-size:17px;
+
+            cursor:pointer;
+
+            margin:5px;
+
+        }
+
+
+        button:hover{
+
+            background:#1565c0;
+
+        }
+
+
+        /* MOBILE */
+
+        @media(max-width:800px){
+
+            .page{
+
+                width:95%;
+
+            }
+
+
+            .main-title h1{
+
+                font-size:30px;
+
+            }
+
+
+            .percentage{
+
+                font-size:65px;
+
+            }
+
+
+            .roles,
+
+            .improve{
+
+                grid-template-columns:1fr;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<div class="page">
+
+
+    <!-- TITLE -->
+
+    <div class="main-title">
+
+        <h1>
+
+            🎯 Placement Prediction Result
+
+        </h1>
+
+    </div>
+
+
+    <!-- PLACEMENT RESULT -->
+
+    <div class="section prediction">
+
+
+        <h2>
+
+            Placement Probability
+
+        </h2>
+
+
+        <div class="percentage">
+
+            {{ placement_score }}%
+
+        </div>
+
+
+        <div class="status">
+
+            {{ status }}
+
+        </div>
+
+
+        <p class="message">
+
+            Based on your academic performance,
+
+            qualification, branch and technical skills,
+
+            our prediction system estimates your
+
+            placement possibility.
+
+        </p>
+
+
+    </div>
+
+
+    <!-- STUDENT INFORMATION -->
+
+    <div class="section">
+
+
+        <h2>
+
+            🎓 Academic Profile
+
+        </h2>
+
+
+        <p>
+
+            <strong>Qualification:</strong>
+
+            {{ qualification }}
+
+        </p>
+
+
+        <br>
+
+
+        <p>
+
+            <strong>Branch:</strong>
+
+            {{ branch }}
+
+        </p>
+
+
+        <br>
+
+
+        <p>
+
+            <strong>10th Percentage:</strong>
+
+            {{ tenth }}%
+
+        </p>
+
+
+        <br>
+
+
+        <p>
+
+            <strong>12th / Diploma Percentage:</strong>
+
+            {{ inter }}%
+
+        </p>
+
+
+        <br>
+
+
+        <p>
+
+            <strong>Degree CGPA:</strong>
+
+            {{ cgpa }}
+
+        </p>
+
+
+        <br>
+
+
+        <p>
+
+            <strong>Skills:</strong>
+
+            {{ skills }}
+
+        </p>
+
+
+    </div>
+
+
+    <!-- JOB ROLES -->
+
+    <div class="section">
+
+
+        <h2>
+
+            💼 Recommended Job Roles
+
+        </h2>
+
+
+        <div class="roles">
+
+
+            <div class="role">
+
+                Software Developer
+
+            </div>
+
+
+            <div class="role">
+
+                Python Developer
+
+            </div>
+
+
+            <div class="role">
+
+                Web Developer
+
+            </div>
+
+
+            <div class="role">
+
+                Data Analyst
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+
+    <!-- SKILLS TO IMPROVE -->
+
+    <div class="section">
+
+
+        <h2>
+
+            🚀 Skills to Improve
+
+        </h2>
+
+
+        <div class="improve">
+
+
+            {% for skill in improve_skills %}
+
+
+                <div class="skill">
+
+                    {{ skill }}
+
+                </div>
+
+
+            {% endfor %}
+
+
+        </div>
+
+
+    </div>
+
+
+    <!-- BUTTONS -->
+
+    <div class="buttons">
+
+
+        <a href="/dashboard">
+
+            <button>
+
+                Back to Dashboard
+
+            </button>
+
+        </a>
+
+
+        <a href="/personal">
+
+            <button>
+
+                Try Again
+
+            </button>
+
+        </a>
+
+
+    </div>
+
+
+</div>
+...
+
+<footer>
+    <h3>Student Placement Prediction System</h3>
+    <p>Developed by <strong>Hemalatha Dasari</strong></p>
+    <p>Krishna University | Department of Computer Science & Engineering</p>
+    <p>© 2026 All Rights Reserved</p>
+</footer>
+
+</body>
+</html>
+
+</body>
+
+</html>
