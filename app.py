@@ -107,47 +107,32 @@ def personal():
 # DASHBOARD
 # ---------------------------------------
 
-@app.route("/dashboard", methods=["POST"])
+@app.route("/dashboard", methods=["GET", "POST"])
 def dashboard():
 
     global student_data
 
-    student_data = {
+    if request.method == "POST":
 
-        "name": request.form["name"],
-
-        "father": request.form["father"],
-
-        "mother": request.form["mother"],
-
-        "dob": request.form["dob"],
-
-        "gender": request.form["gender"],
-
-        "phone": request.form["phone"],
-
-        "email": request.form["email"],
-
-        "qualification": request.form["qualification"],
-
-        "branch": request.form["branch"],
-
-        "tenth": request.form["tenth"],
-
-        "inter": request.form["inter"],
-
-        "cgpa": request.form["cgpa"],
-
-        "skills": request.form["skills"]
-
-    }
+        student_data = {
+            "name": request.form["name"],
+            "father": request.form["father"],
+            "mother": request.form["mother"],
+            "dob": request.form["dob"],
+            "gender": request.form["gender"],
+            "phone": request.form["phone"],
+            "email": request.form["email"],
+            "qualification": request.form["qualification"],
+            "branch": request.form["branch"],
+            "tenth": request.form["tenth"],
+            "inter": request.form["inter"],
+            "cgpa": request.form["cgpa"],
+            "skills": request.form["skills"]
+        }
 
     return render_template(
-
         "dashboard.html",
-
         **student_data
-
     )
 # ---------------------------------------
 # PLACEMENT RESULT
